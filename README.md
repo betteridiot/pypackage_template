@@ -16,19 +16,53 @@ A comprehensive Python package template with integrated CI/CD, testing, document
 
 ```
 pypackage_template/
-├── src/                            # Source code directory
-│   └── pypackage_template/         # Main package
-├── tests/                          # Test directory
-│   ├── conftest.py                 # Shared pytest fixtures
-│   ├── unit/                       # Unit tests
-│   ├── integration/                # Integration tests
-│   └── e2e/                        # End-to-end tests
-├── docs/                           # Documentation
-│   └── source/                     # Documentation source
-├── scripts/                        # Utility scripts
-├── .github/                        # GitHub specific files
-│   └── workflows/                  # GitHub Actions
-└── [Configuration Files]           # Various tool configs
+├── src/
+│   └── pypackage_template/
+│       ├── __init__.py           # Package metadata, version, authors
+│       ├── py.typed              # Type hint marker (empty file)
+│       ├── ...
+├── tests/
+│   ├── __init__.py               # Test package marker
+│   ├── conftest.py               # Shared pytest fixtures
+│   ├── unit/
+│   │   ├── __init__.py           # Unit tests package marker
+│   │   ├── ...
+│   ├── integration/
+│   │   ├── __init__.py           # Integration tests package marker
+│   │   └── ...
+│   └── e2e/
+│       ├── __init__.py           # End-to-end tests package marker
+│       └── ...
+├── docs/
+│   ├── source/
+│   │   ├── conf.py               # Sphinx configuration
+│   │   ├── ...
+├── scripts/
+│   ├── customize_template.py     # Template customization script
+│   ├── install_dev.sh            # Development setup script
+│   └── run_checks.sh             # Quality checks script
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml                # Main CI pipeline
+│   │   ├── docs.yml              # Documentation builds
+│   │   ├── changelog.yml         # Changelog automation
+│   │   └── publish.yml           # PyPI publishing
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .gitignore                    # Git ignore patterns
+├── .pre-commit-config.yaml       # Pre-commit hooks config
+├── .readthedocs.yaml             # ReadTheDocs configuration
+├── poetry.toml                   # Poetry virtualenv settings
+├── MANIFEST.in                   # Package manifest
+├── pyproject.toml                # Project metadata and tool configs
+├── tox.ini                       # Tox configuration
+├── CHANGELOG.md                  # Auto-generated changelog
+├── CODE_OF_CONDUCT.md            # Project conduct guidelines
+├── CONTRIBUTING.md               # Contribution guidelines
+├── LICENSE                       # Project license
+└── README.md                     # Project overview
 ```
 
 ## Development Tools
