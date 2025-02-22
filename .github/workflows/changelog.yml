@@ -1,0 +1,28 @@
+name: Update Changelog
+
+on:
+  push:
+    branches: [ main ]
+    tags: ['v*']
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelog
+        uses: conventional-changelog/conventional-changelog-action@v3
+        with:
+          config: 'conventional-changelog-conventionalcommits'
+          output-file: 'CHANGELOG.md'
+          release-count: 0
+          git-message: 'chore(changelog): update changelog'
+          
+      - name: Commit updated CHANGELOG
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update CHANGELOG.md'
+          file_pattern: CHANGELOG.md
