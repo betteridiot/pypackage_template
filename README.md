@@ -309,6 +309,57 @@ about:
 
 3. Submit pull request to conda-forge/staged-recipes
 
+## Documentation System
+
+### Sphinx Configuration
+Sphinx is the documentation generator that converts reStructuredText (RST) and Python docstrings into HTML:
+1. Configuration files:
+   - `docs/source/conf.py`: Main Sphinx settings
+   - `.readthedocs.yaml`: ReadTheDocs build configuration
+   - `pyproject.toml`: `[tool.sphinx-pyproject]` section
+
+2. Documentation structure:
+   - `docs/source/*.rst`: Main documentation pages
+   - `docs/source/api/`: Auto-generated API documentation
+   - `docs/source/_static/`: Static files (images, CSS)
+   - `docs/source/_templates/`: Custom HTML templates
+
+### Documentation Integration
+The documentation system integrates multiple components:
+- **Sphinx Extensions**:
+  - `sphinx.ext.autodoc`: Pulls documentation from docstrings
+  - `sphinx.ext.napoleon`: Supports Google-style docstrings
+  - `sphinx.ext.viewcode`: Links documentation to source code
+  - `sphinx_autodoc_typehints`: Includes type hints in docs
+  - `myst_parser`: Enables Markdown support
+
+- **ReadTheDocs Integration**:
+  - Automatic builds on `git` pushes
+  - Version-specific documentation
+  - PDF and ePub generation
+  - Full-text search
+  - API documentation hosting
+
+### Documentation Workflow
+1. Local Development:
+   ```bash
+   cd docs
+   poetry run make html        # Build HTML docs
+   poetry run make doctest     # Test code examples
+   poetry run make linkcheck   # Check external links
+   ```
+
+2. Automated Builds:
+   - Triggered by GitHub Actions
+   - Builds documentation for each version
+   - Deploys to ReadTheDocs
+   - Checks documentation quality
+
+3. Version Management:
+   - Documentation tagged with release versions
+   - Development version from main branch
+   - Previous versions preserved
+
 ## Automated CI/CD
 
 ### Automated Quality Checks
