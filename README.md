@@ -2,6 +2,11 @@
 
 A comprehensive Python package template with integrated CI/CD, testing, documentation, and development tools.
 
+> **Note:** Since this repository has the code necessary to trigger GitHub Actions, you may want to go into the Repo **Settings** > **Actions** > **General** > ... "Disable actions" then **Save** (seen below)
+
+![image](https://github.com/user-attachments/assets/c3f5b717-5a57-4d64-8db4-42286c7a02b4)
+
+
 ## Features
 
 - Source package layout with type hints
